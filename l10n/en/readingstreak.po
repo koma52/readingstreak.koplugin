@@ -1,0 +1,172 @@
+# English translation for Reading Streak Plugin
+# Copyright (C) 2025
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Reading Streak"
+msgstr "Reading Streak"
+
+msgid "Track your daily and weekly reading streaks similar to Kindle Streak. View calendar, set goals, and celebrate milestones."
+msgstr "Track your daily and weekly reading streaks similar to Kindle Streak. View calendar, set goals, and celebrate milestones."
+
+msgid "Congratulations! You've reached your streak goal of %1 days!"
+msgstr "Congratulations! You've reached your streak goal of %1 days!"
+
+msgid "%1 Current Streak: %2\n\nProgress to goal (%3):\n%4\n\nLongest Streak: %5\nCurrent Week Streak: %6\nLongest Week Streak: %7\nTotal Days Read: %8\n\nFirst Read: %9\nLast Read: %10"
+msgstr "%1 Current Streak: %2\n\nProgress to goal (%3):\n%4\n\nLongest Streak: %5\nCurrent Week Streak: %6\nLongest Week Streak: %7\nTotal Days Read: %8\n\nFirst Read: %9\nLast Read: %10"
+
+msgid "Never"
+msgstr "Never"
+
+msgid "Set Streak Goal"
+msgstr "Set Streak Goal"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Set Goal"
+msgstr "Set Goal"
+
+msgid "Streak goal set to %1 days!"
+msgstr "Streak goal set to %1 days!"
+
+msgid "Reading streak has been reset!"
+msgstr "Reading streak has been reset!"
+
+msgid "View Streak"
+msgstr "View Streak"
+
+msgid "Calendar View"
+msgstr "Calendar View"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Reset Streak"
+msgstr "Reset Streak"
+
+msgid "Reading Streak Settings"
+msgstr "Reading Streak Settings"
+
+msgid "Streak Goal (days)"
+msgstr "Streak Goal (days)"
+
+msgid "Streak Goal"
+msgstr "Streak Goal"
+
+msgid "Show streak notifications"
+msgstr "Show streak notifications"
+
+msgid "Automatically track reading"
+msgstr "Automatically track reading"
+
+msgid "Reset All Data"
+msgstr "Reset All Data"
+
+msgid "Are you sure you want to reset all reading streak data?"
+msgstr "Are you sure you want to reset all reading streak data?"
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "1 day"
+msgstr "1 day"
+
+msgid "%1 days"
+msgstr "%1 days"
+
+msgid "1 week"
+msgstr "1 week"
+
+msgid "%1 weeks"
+msgstr "%1 weeks"
+
+msgid "%1 days read out of %2"
+msgstr "%1 days read out of %2"
+
+msgid "Goals and Tracking"
+msgstr "Goals and Tracking"
+
+msgid "Notifications"
+msgstr "Notifications"
+
+msgid "Data Management"
+msgstr "Data Management"
+
+msgid "Test Notification"
+msgstr "Test Notification"
+
+msgid "All reading streak data has been reset."
+msgstr "All reading streak data has been reset."
+
+msgid "Import from Statistics"
+msgstr "Import from Statistics"
+
+msgid "Statistics database not found."
+msgstr "Statistics database not found."
+
+msgid "No reading statistics found in database."
+msgstr "No reading statistics found in database."
+
+msgid "No new reading statistics found in database."
+msgstr "No new reading statistics found in database."
+
+msgid "Imported %1 reading days from statistics database."
+msgstr "Imported %1 reading days from statistics database."
+
+msgid "Error importing statistics: %1"
+msgstr "Error importing statistics: %1"
+
+msgid "Error showing calendar: %1"
+msgstr "Error showing calendar: %1"
+
+msgid "Error showing settings: %1"
+msgstr "Error showing settings: %1"
+
+msgid "Streak Goal: %1 days"
+msgstr "Streak Goal: %1 days"
+
+msgid "Calendar streak display: %1"
+msgstr "Calendar streak display: %1"
+
+msgid "Days"
+msgstr "Days"
+
+msgid "Weeks"
+msgstr "Weeks"
+
+msgid "Both"
+msgstr "Both"
+
+msgid "Current streak: %1"
+msgstr "Current streak: %1"
+
+msgid "Current week streak: %1"
+msgstr "Current week streak: %1"
+
+msgid "Longest Streak"
+msgstr "Longest Streak"
+
+msgid "Total Days Read"
+msgstr "Total Days Read"
+
+msgid "First Read"
+msgstr "First Read"
+
+msgid "Last Read"
+msgstr "Last Read"
+
+msgid "Progress to goal"
+msgstr "Progress to goal"
+
+msgid "Current Streak"
+msgstr "Current Streak"
+
+msgid "Current Week Streak"
+msgstr "Current Week Streak"
+
+msgid "Longest Week Streak"
+msgstr "Longest Week Streak"
+

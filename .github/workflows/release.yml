@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Install gettext
+        run: sudo apt-get update && sudo apt-get install -y gettext
+      
+      - name: Convert PO files to MO
+        run: |
+          if [ -f scripts/po2mo.sh ]; then
+            chmod +x scripts/po2mo.sh
+            bash scripts/po2mo.sh
+          else
+            echo "scripts/po2mo.sh not found at repo root" && exit 1
+          fi
+      
+      - name: Extract version from tag
+        id: version
+        run: |
+          VERSION=${GITHUB_REF#refs/tags/v}
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+          echo "Version: $VERSION"
+      
+      - name: Create release archive
+        run: |
+          set -e
+          VERSION=${{ steps.version.outputs.version }}
+          PLUGIN_DIR=readingstreak.koplugin
+          ARCHIVE_NAME=${PLUGIN_DIR}-v${VERSION}.zip
+          PKG_ROOT=readingstreak_pkg
+          rm -rf "$PKG_ROOT"
+          mkdir -p "$PKG_ROOT/$PLUGIN_DIR"
+          rsync -a ./ "$PKG_ROOT/$PLUGIN_DIR/" \
+            --exclude="*.old" --exclude="*.old2" --exclude="*_example.lua" \
+            --exclude="*.git*" --exclude="*.md" --exclude=".github/*" \
+            --exclude="$PKG_ROOT" \
+            --exclude="staging"
+          (cd "$PKG_ROOT" && zip -r "../${ARCHIVE_NAME}" "$PLUGIN_DIR")
+          echo "archive_name=${ARCHIVE_NAME}" >> $GITHUB_ENV
+      
+      - name: Extract changelog for this version
+        id: changelog
+        run: |
+          VERSION=${{ steps.version.outputs.version }}
+          # Extract changelog entry for this version from CHANGELOG.md
+          awk "/^## \[$VERSION\]/,/^## \[/" CHANGELOG.md | sed '$d' > release_notes.txt || awk "/^## \[$VERSION\]/,EOF" CHANGELOG.md > release_notes.txt
+          cat release_notes.txt
+      
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ${{ env.archive_name }}
+          body_path: release_notes.txt
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

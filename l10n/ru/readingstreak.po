@@ -1,0 +1,172 @@
+# Russian translation for Reading Streak Plugin
+# Copyright (C) 2025
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Reading Streak"
+msgstr "Серия чтения"
+
+msgid "Track your daily and weekly reading streaks similar to Kindle Streak. View calendar, set goals, and celebrate milestones."
+msgstr "Отслеживайте ежедневные и еженедельные серии чтения, аналогично Kindle Streak. Просматривайте календарь, устанавливайте цели и отмечайте достижения."
+
+msgid "Congratulations! You've reached your streak goal of %1 days!"
+msgstr "Поздравляем! Вы достигли цели в %1 дней подряд!"
+
+msgid "%1 Current Streak: %2\n\nProgress to goal (%3):\n%4\n\nLongest Streak: %5\nCurrent Week Streak: %6\nLongest Week Streak: %7\nTotal Days Read: %8\n\nFirst Read: %9\nLast Read: %10"
+msgstr "%1 Текущая серия: %2\n\nПрогресс к цели (%3):\n%4\n\nСамая длинная серия: %5\nТекущая недельная серия: %6\nСамая длинная недельная серия: %7\nВсего дней чтения: %8\n\nПервое чтение: %9\nПоследнее чтение: %10"
+
+msgid "Never"
+msgstr "Никогда"
+
+msgid "Set Streak Goal"
+msgstr "Установить цель"
+
+msgid "Cancel"
+msgstr "Отмена"
+
+msgid "Set Goal"
+msgstr "Установить"
+
+msgid "Streak goal set to %1 days!"
+msgstr "Цель установлена на %1 дней!"
+
+msgid "Reading streak has been reset!"
+msgstr "Серия чтения сброшена!"
+
+msgid "View Streak"
+msgstr "Просмотр серии"
+
+msgid "Calendar View"
+msgstr "Календарный вид"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Reset Streak"
+msgstr "Сбросить серию"
+
+msgid "Reading Streak Settings"
+msgstr "Настройки серии чтения"
+
+msgid "Streak Goal (days)"
+msgstr "Цель серии (дни)"
+
+msgid "Streak Goal"
+msgstr "Цель серии"
+
+msgid "Show streak notifications"
+msgstr "Показывать уведомления о серии"
+
+msgid "Automatically track reading"
+msgstr "Автоматически отслеживать чтение"
+
+msgid "Reset All Data"
+msgstr "Сбросить все данные"
+
+msgid "Are you sure you want to reset all reading streak data?"
+msgstr "Вы уверены, что хотите сбросить все данные о серии чтения?"
+
+msgid "Reset"
+msgstr "Сбросить"
+
+msgid "1 day"
+msgstr "1 день"
+
+msgid "%1 days"
+msgstr "%1 дней"
+
+msgid "1 week"
+msgstr "1 неделя"
+
+msgid "%1 weeks"
+msgstr "%1 недель"
+
+msgid "%1 days read out of %2"
+msgstr "%1 дней прочитано из %2"
+
+msgid "Goals and Tracking"
+msgstr "Цели и отслеживание"
+
+msgid "Notifications"
+msgstr "Уведомления"
+
+msgid "Data Management"
+msgstr "Управление данными"
+
+msgid "Test Notification"
+msgstr "Тестовое уведомление"
+
+msgid "All reading streak data has been reset."
+msgstr "Все данные о серии чтения сброшены."
+
+msgid "Import from Statistics"
+msgstr "Импортировать из статистики"
+
+msgid "Statistics database not found."
+msgstr "База данных статистики не найдена."
+
+msgid "No reading statistics found in database."
+msgstr "В базе данных не найдено статистики чтения."
+
+msgid "No new reading statistics found in database."
+msgstr "В базе данных не найдено новой статистики чтения."
+
+msgid "Imported %1 reading days from statistics database."
+msgstr "Импортировано %1 дней чтения из базы данных статистики."
+
+msgid "Error importing statistics: %1"
+msgstr "Ошибка при импорте статистики: %1"
+
+msgid "Error showing calendar: %1"
+msgstr "Ошибка при отображении календаря: %1"
+
+msgid "Error showing settings: %1"
+msgstr "Ошибка при отображении настроек: %1"
+
+msgid "Streak Goal: %1 days"
+msgstr "Цель серии: %1 дней"
+
+msgid "Calendar streak display: %1"
+msgstr "Отображение серии в календаре: %1"
+
+msgid "Days"
+msgstr "Дни"
+
+msgid "Weeks"
+msgstr "Недели"
+
+msgid "Both"
+msgstr "Оба"
+
+msgid "Current streak: %1"
+msgstr "Текущая серия: %1"
+
+msgid "Current week streak: %1"
+msgstr "Текущая недельная серия: %1"
+
+msgid "Longest Streak"
+msgstr "Самая длинная серия"
+
+msgid "Total Days Read"
+msgstr "Всего дней чтения"
+
+msgid "First Read"
+msgstr "Первое чтение"
+
+msgid "Last Read"
+msgstr "Последнее чтение"
+
+msgid "Progress to goal"
+msgstr "Прогресс к цели"
+
+msgid "Current Streak"
+msgstr "Текущая серия"
+
+msgid "Current Week Streak"
+msgstr "Текущая недельная серия"
+
+msgid "Longest Week Streak"
+msgstr "Самая длинная недельная серия"
+
