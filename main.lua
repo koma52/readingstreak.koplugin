@@ -462,8 +462,8 @@ end
 
 function ReadingStreak:showSettings()
     local ok, err = pcall(function()
-        local Settings = require("settings")
-        local settings_dialog = Settings:new{
+        local ReadingStreakSettings = require("settings")
+        local settings_dialog = ReadingStreakSettings:new{
             reading_streak = self,
         }
         settings_dialog:showSettingsDialog()
