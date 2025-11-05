@@ -23,6 +23,9 @@ local ReadingStreak = WidgetContainer:extend{
 }
 
 function ReadingStreak:init()
+    -- Log plugin version on load
+    local version = self.version or "unknown"
+    logger.info("ReadingStreak plugin loaded", {version = version})
     self.settings_file = DataStorage:getSettingsDir() .. "/reading_streak.lua"
     self:loadSettings()
     self.last_page_update_time = nil
