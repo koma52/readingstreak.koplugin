@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.1.2] - 2025-02-06
+
 ### Fixed
 - Settings dialog now automatically falls back to inline menu on devices where dialog fails to load ([#2](https://github.com/advokatb/readingstreak.koplugin/issues/2), reported by @apa-u)
 - Improved settings dialog error handling with automatic fallback mechanism
