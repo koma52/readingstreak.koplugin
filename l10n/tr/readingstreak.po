@@ -202,6 +202,9 @@ msgstr "Geçerli Hafta Serisi"
 msgid "Longest Week Streak"
 msgstr "En Uzun Hafta Serisi"
 
+msgid "Today's Pages Read"
+msgstr "Bugün Okunan Sayfalar"
+
 msgid "Today's Reading Time"
 msgstr "Bugünün Okuma Süresi"
 
@@ -216,3 +219,6 @@ msgstr "%1 saat"
 
 msgid "%1 hours %2 minutes"
 msgstr "%1 saat %2 dakika"
+
+msgid "Show Menu"
+msgstr "Menüyü Göster"

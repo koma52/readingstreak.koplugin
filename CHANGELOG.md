@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.2.2] - 2025-11-09
+
+### Added
+- Gesture support for quick access to plugin features during reading
+  - "Reading Streak - View Streak" action available for gesture assignment
+  - "Reading Streak - Calendar View" action available for gesture assignment
+  - Actions can be assigned to any gesture in KOReader's gesture settings
+
+### Changed
+- Time formatting now uses compact format (h/m) instead of full words (hours/minutes)
+  - Example: "1 h 30 m" instead of "1 hours 30 minutes"
+- Added today's pages read count to streak info popup
+
 ## [1.2.1] - 2025-11-09
 
 ### Changed

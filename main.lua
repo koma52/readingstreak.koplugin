@@ -17,6 +17,8 @@ local DailyProgress = require("daily_progress")
 local StreakCalculator = require("streak_calculator")
 local TimeStats = require("time_stats")
 local StatisticsImporter = require("statistics_importer")
+local Dispatcher = require("dispatcher")
+local Menu = require("ui/widget/menu")
 
 -- Set to true to use inline menu for settings, false to use dialog window
 local USE_INLINE_SETTINGS = false
@@ -78,6 +80,8 @@ function ReadingStreak:init()
         self:checkStreak()
     end
     
+    -- Register actions with dispatcher for gesture assignment
+    self:onDispatcherRegisterActions()
 end
 
 function ReadingStreak:onReaderReady()
@@ -226,19 +230,22 @@ function ReadingStreak:showStreakInfo()
     local week_streak_text = week_streak == 1 and _("1 week") or T(_("%1 weeks"), week_streak)
     local longest_week_text = longest_week == 1 and _("1 week") or T(_("%1 weeks"), longest_week)
     
-    -- Get reading time
+    -- Get reading time and pages
     self:ensureDailyProgressState()
     local today_time = 0
+    local today_pages = 0
     if self.settings.daily_progress and self.settings.daily_progress.date == self:getTodayString() then
         today_time = self.settings.daily_progress.duration or 0
+        today_pages = self.settings.daily_progress.pages or 0
     end
     local today_time_text = self:formatTime(today_time)
+    local today_pages_text = T(_("%1 pages"), today_pages)
     
     local weekly_time = self:getWeeklyReadingTime()
     local weekly_time_text = self:formatTime(weekly_time)
     
     local message = string.format(
-        "%s %s: %s\n\n%s (%s):\n%s\n\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n\n%s: %s\n%s: %s\n\n%s: %s\n%s: %s",
+        "%s %s: %s\n\n%s (%s):\n%s\n\n%s: %s\n%s: %s\n%s: %s\n%s: %s\n\n%s: %s\n%s: %s\n\n%s: %s\n%s: %s\n%s: %s",
         emoji,
         _("Current Streak"), day_text,
         _("Progress to goal"), goal_day_text, progress_bar,
@@ -248,6 +255,7 @@ function ReadingStreak:showStreakInfo()
         _("Total Days Read"), total_day_text,
         _("First Read"), self.settings.first_read_date or _("Never"),
         _("Last Read"), self.settings.last_read_date or _("Never"),
+        _("Today's Pages Read"), today_pages_text,
         _("Today's Reading Time"), today_time_text,
         _("This Week's Reading Time"), weekly_time_text
     )
@@ -362,6 +370,33 @@ end
 
 function ReadingStreak:addToFileManagerMenu(menu_items)
     self:addToMainMenu(menu_items)
+end
+
+function ReadingStreak:onDispatcherRegisterActions()
+    Dispatcher:registerAction("readingstreak_view", {
+        category = "none",
+        event = "ShowReadingStreakView",
+        title = _("Reading Streak") .. " - " .. _("View Streak"),
+        general = true,
+        reader = true,
+        separator = false,
+    })
+    Dispatcher:registerAction("readingstreak_calendar", {
+        category = "none",
+        event = "ShowReadingStreakCalendar",
+        title = _("Reading Streak") .. " - " .. _("Calendar View"),
+        general = true,
+        reader = true,
+        separator = true,
+    })
+end
+
+function ReadingStreak:onShowReadingStreakView()
+    self:showStreakInfo()
+end
+
+function ReadingStreak:onShowReadingStreakCalendar()
+    self:showCalendar()
 end
 
 return ReadingStreak

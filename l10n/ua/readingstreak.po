@@ -200,6 +200,9 @@ msgstr "Поточна тижнева серія"
 msgid "Longest Week Streak"
 msgstr "Найдовша тижнева серія"
 
+msgid "Today's Pages Read"
+msgstr "Прочитано сторінок сьогодні"
+
 msgid "Today's Reading Time"
 msgstr "Час читання сьогодні"
 
@@ -214,4 +217,7 @@ msgstr "%1 годин"
 
 msgid "%1 hours %2 minutes"
 msgstr "%1 годин %2 хвилин"
+
+msgid "Show Menu"
+msgstr "Показати меню"
 

@@ -103,6 +103,7 @@ To add new translations, create `.po` files in the `l10n/[language]/koreader.po`
 - English (en)
 - Russian (ru)
 - Ukrainian (ua)
+- Turkish (tr)
 
 ## Technical Details
 

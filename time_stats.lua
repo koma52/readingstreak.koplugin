@@ -15,14 +15,14 @@ function TimeStats.formatTime(seconds)
         return T(_("%1 seconds"), seconds)
     elseif seconds < 3600 then
         local minutes = math.floor(seconds / 60)
-        return T(_("%1 minutes"), minutes)
+        return string.format("%d m", minutes)
     else
         local hours = math.floor(seconds / 3600)
         local minutes = math.floor((seconds % 3600) / 60)
         if minutes > 0 then
-            return T(_("%1 hours %2 minutes"), hours, minutes)
+            return string.format("%d h %d m", hours, minutes)
         else
-            return T(_("%1 hours"), hours)
+            return string.format("%d h", hours)
         end
     end
 end
