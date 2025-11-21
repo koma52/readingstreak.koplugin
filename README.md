@@ -1,5 +1,7 @@
 # Reading Streak Plugin for KOReader
 
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/advokatb/readingstreak.koplugin?style=for-the-badge&color=orange) ![GitHub all releases](https://img.shields.io/github/downloads/advokatb/readingstreak.koplugin/total?style=for-the-badge&color=yellow) ![Platform](https://img.shields.io/badge/Platform-KOReader-success?style=for-the-badge&logo=koreader)
+
 A plugin for tracking daily and weekly reading streaks, similar to Kindle Streak functionality.
 
 ## Features
