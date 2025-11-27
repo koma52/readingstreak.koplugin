@@ -222,3 +222,15 @@ msgstr "%1 saat %2 dakika"
 
 msgid "Show Menu"
 msgstr "Menüyü Göster"
+
+msgid "UI Integration"
+msgstr "UI Entegrasyonu"
+
+msgid "Export to Project Title"
+msgstr "Project Title'a Aktar"
+
+msgid "Export to CoverBrowser"
+msgstr "CoverBrowser'a Aktar"
+
+msgid "No streak"
+msgstr "Seri yok"

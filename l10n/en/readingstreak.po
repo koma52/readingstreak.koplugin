@@ -221,3 +221,15 @@ msgstr "%1 hours %2 minutes"
 msgid "Show Menu"
 msgstr "Show Menu"
 
+msgid "UI Integration"
+msgstr "UI Integration"
+
+msgid "Export to Project Title"
+msgstr "Export to Project Title"
+
+msgid "Export to CoverBrowser"
+msgstr "Export to CoverBrowser"
+
+msgid "No streak"
+msgstr "No streak"
+

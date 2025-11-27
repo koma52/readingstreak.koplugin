@@ -19,9 +19,8 @@ local TimeStats = require("time_stats")
 local StatisticsImporter = require("statistics_importer")
 local Dispatcher = require("dispatcher")
 local Menu = require("ui/widget/menu")
+local PluginShare = require("pluginshare")
 
--- Set to true to use inline menu for settings, false to use dialog window
-local USE_INLINE_SETTINGS = false
 
 local ReadingStreak = WidgetContainer:extend{
     name = "readingstreak",
@@ -82,6 +81,19 @@ function ReadingStreak:init()
     
     -- Register actions with dispatcher for gesture assignment
     self:onDispatcherRegisterActions()
+    
+    -- Initialize PluginShare API if enabled
+    self:updatePluginShareAPI()
+    
+    -- Register Project Title integration if enabled
+    if self.settings.export_to_projecttitle then
+        local ok, ProjectTitleIntegration = pcall(require, "projecttitle_integration")
+        if ok and ProjectTitleIntegration then
+            ProjectTitleIntegration.register()
+        else
+            logger.warn("ReadingStreak: Failed to load Project Title integration", ProjectTitleIntegration)
+        end
+    end
 end
 
 function ReadingStreak:onReaderReady()
@@ -176,6 +188,8 @@ end
 
 function ReadingStreak:updateDailyProgress(pageno)
     DailyProgress.updateDailyProgress(self, pageno)
+    -- Update PluginShare API after progress update
+    self:updatePluginShareAPI()
 end
 
 function ReadingStreak:hasMetDailyGoal()
@@ -196,6 +210,8 @@ end
 
 function ReadingStreak:checkStreak()
     StreakCalculator.checkStreak(self)
+    -- Update PluginShare API after streak check
+    self:updatePluginShareAPI()
 end
 
 function ReadingStreak:getStreakEmoji()
@@ -293,28 +309,6 @@ function ReadingStreak:showCalendar()
     end
 end
 
-function ReadingStreak:showSettings()
-    local ok, err = pcall(function()
-        local ReadingStreakSettings = require("settings")
-        local settings_dialog = ReadingStreakSettings:new{
-            reading_streak = self,
-        }
-        settings_dialog:showSettingsDialog()
-    end)
-    if not ok then
-        logger.err("ReadingStreak: Error showing settings dialog, falling back to inline menu", {error = tostring(err)})
-        -- Fallback to inline menu if dialog fails
-        local Menu = require("ui/widget/menu")
-        local inline_settings = require("settings_inline")
-        local items = inline_settings.build(self)
-        
-        local settings_menu = Menu:new{
-            title = _("Reading Streak Settings"),
-            item_table = items,
-        }
-        UIManager:show(settings_menu)
-    end
-end
 
 function ReadingStreak:resetStreak()
     self.settings.current_streak = 0
@@ -355,14 +349,10 @@ function ReadingStreak:addToMainMenu(menu_items)
             },
             {
                 text = _("Settings"),
-                -- Use inline submenu if USE_INLINE_SETTINGS is true, otherwise use dialog
-                sub_item_table_func = USE_INLINE_SETTINGS and function()
+                sub_item_table_func = function()
                     local inline_settings = require("settings_inline")
                     return inline_settings.build(self)
-                end or nil,
-                callback = not USE_INLINE_SETTINGS and function()
-                    self:showSettings()
-                end or nil,
+                end,
             },
         }
     }
@@ -397,6 +387,79 @@ end
 
 function ReadingStreak:onShowReadingStreakCalendar()
     self:showCalendar()
+end
+
+-- PluginShare API for integration with other plugins
+function ReadingStreak:updatePluginShareAPI()
+    logger.info("ReadingStreak: updatePluginShareAPI called", {
+        has_pluginShare = PluginShare ~= nil,
+        export_to_projecttitle = self.settings.export_to_projecttitle,
+        export_to_coverbrowser = self.settings.export_to_coverbrowser
+    })
+    
+    if not PluginShare then
+        logger.warn("ReadingStreak: PluginShare not available")
+        return
+    end
+    
+    -- Only export if at least one integration is enabled
+    if not self.settings.export_to_projecttitle and not self.settings.export_to_coverbrowser then
+        PluginShare.readingstreak = nil
+        logger.dbg("ReadingStreak: No integrations enabled, clearing PluginShare")
+        return
+    end
+    
+    -- Register Project Title integration based on setting
+    if self.settings.export_to_projecttitle then
+        local ok, ProjectTitleIntegration = pcall(require, "projecttitle_integration")
+        if ok and ProjectTitleIntegration then
+            ProjectTitleIntegration.register()
+        end
+    end
+    
+    self:ensureDailyProgressState()
+    local today_time = 0
+    local today_pages = 0
+    if self.settings.daily_progress and self.settings.daily_progress.date == self:getTodayString() then
+        today_time = self.settings.daily_progress.duration or 0
+        today_pages = self.settings.daily_progress.pages or 0
+    end
+    
+    PluginShare.readingstreak = {
+        current_streak = self.settings.current_streak or 0,
+        longest_streak = self.settings.longest_streak or 0,
+        current_week_streak = self.settings.current_week_streak or 0,
+        longest_week_streak = self.settings.longest_week_streak or 0,
+        total_days = self.settings.total_days or 0,
+        streak_goal = self.settings.streak_goal or 7,
+        today_pages = today_pages,
+        today_time = today_time,
+        weekly_time = self:getWeeklyReadingTime(),
+        -- Formatted strings for easy display
+        getStreakText = function()
+            local streak = self.settings.current_streak or 0
+            if streak == 0 then
+                return _("No streak")
+            elseif streak == 1 then
+                return _("1 day")
+            else
+                return T(_("%1 days"), streak)
+            end
+        end,
+        getStreakEmoji = function()
+            return self:getStreakEmoji()
+        end,
+        -- Raw values for custom formatting
+        getStreakNumber = function()
+            return self.settings.current_streak or 0
+        end,
+    }
+    
+    logger.info("ReadingStreak: PluginShare data exported", {
+        current_streak = PluginShare.readingstreak.current_streak,
+        has_getStreakText = PluginShare.readingstreak.getStreakText ~= nil,
+        has_getStreakEmoji = PluginShare.readingstreak.getStreakEmoji ~= nil
+    })
 end
 
 return ReadingStreak

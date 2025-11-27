@@ -58,6 +58,13 @@ function SettingsManager.loadSettings(reading_streak)
         if not reading_streak.settings.daily_progress or type(reading_streak.settings.daily_progress) ~= "table" then
             reading_streak.settings.daily_progress = {}
         end
+        -- Default to false (disabled) for integration exports
+        if reading_streak.settings.export_to_projecttitle == nil then
+            reading_streak.settings.export_to_projecttitle = false
+        end
+        if reading_streak.settings.export_to_coverbrowser == nil then
+            reading_streak.settings.export_to_coverbrowser = false
+        end
     else
         reading_streak.settings = {
             current_streak = 0,
@@ -75,6 +82,8 @@ function SettingsManager.loadSettings(reading_streak)
             daily_page_threshold = DEFAULT_DAILY_PAGE_THRESHOLD,
             daily_time_threshold = DEFAULT_DAILY_TIME_THRESHOLD,
             daily_progress = {},
+            export_to_projecttitle = false,
+            export_to_coverbrowser = false,
         }
     end
 end

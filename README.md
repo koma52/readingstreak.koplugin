@@ -6,15 +6,16 @@ A plugin for tracking daily and weekly reading streaks, similar to Kindle Streak
 
 ## Features
 
-1. **Localization** - Multi-language support (English, Russian, Ukrainian)
+1. **Localization** - Multi-language support (English, Russian, Ukrainian, Turkish)
 2. **Daily Streaks** - Track consecutive days of reading
 3. **Weekly Streaks** - Track consecutive weeks of reading
 4. **Calendar View** - Visualize reading progress with monthly calendar navigation
 5. **Date Tracking** - Display first and last reading dates
-6. **Settings** - Comprehensive settings dialog
+6. **Settings** - Comprehensive inline settings menu organized into logical submenus
 7. **Goals** - Set streak goals and get notifications when achieved
 8. **Notifications** - Optional notifications for reaching goals
 9. **Statistics Import** - Import historical reading data from KOReader's `statistics.sqlite3` database
+10. **UI Integration** - Display reading streak directly in Project Title footer
 
 ## Installation
 
@@ -60,31 +61,48 @@ The import feature is useful if you want to:
 - Recover reading data after reinstalling the plugin
 - Sync reading data if you've been using KOReader's built-in statistics
 
+## UI Integration
+
+Display your reading streak directly in Project Title footer for constant motivation! 
+
+**Quick Setup:**
+1. Go to **Tools** → **Reading Streak** → **Settings** → **UI Integration**
+2. Enable "Export to Project Title"
+3. Restart KOReader
+4. Your streak will appear automatically in Project Title footer!
+
+For detailed instructions, see [UI Integration Guide](UI_INTEGRATION.md).
+
+*This feature was requested by [@JoeBumm](https://github.com/JoeBumm) in [issue #3](https://github.com/advokatb/readingstreak.koplugin/issues/3).*
+
 ## Settings
 
 Access settings via:
 - **Tools** → **Reading Streak** → **Settings**
 
-The settings dialog is organized into sections:
+The settings menu is organized into submenus:
 
-### Goals and Tracking
+### Goals
 
-- **Streak Goal** (button) - Tap to set your daily reading streak goal (1-365 days). When you reach this goal, you'll receive a congratulatory notification (if notifications are enabled).
+- **Streak Goal** - Set your daily reading streak goal (1-365 days). When you reach this goal, you'll receive a congratulatory notification (if notifications are enabled).
+- **Daily Page Target** - Configure optional daily minimum pages read. A day only counts toward the streak once the threshold is met.
+- **Daily Time Target** - Configure optional daily minimum minutes spent reading. A day only counts toward the streak once the threshold is met.
 
-- **Daily Targets** (button) - Configure optional daily minimums for pages read and/or minutes spent reading. A day only counts toward the streak once both configured thresholds are met, and you'll see a congratulatory popup the first time you hit the target each day. Choose "Off" to disable either threshold.
+### Tracking
 
-- **Calendar streak display** (button) - Tap to choose how the current streak is displayed in the calendar view. Options:
+- **Automatically track reading** - Enable/disable automatic tracking when books are opened. When enabled, the plugin automatically records reading activity when you open a book.
+- **Show streak notifications** - Enable/disable notifications when you reach your streak goal. When enabled, you'll see a notification popup when your current streak equals your goal.
+
+### Display
+
+- **Calendar streak display** - Choose how the current streak is displayed in the calendar view:
   - **Days** - Show only daily streak (e.g., "Current streak: 33 days")
   - **Weeks** - Show only weekly streak (e.g., "Current week streak: 6 weeks")
   - **Both** - Show both daily and weekly streaks (default)
 
-### Notifications
+### UI Integration
 
-- **Show streak notifications** - Enable/disable notifications when you reach your streak goal. When enabled, you'll see a notification popup when your current streak equals your goal.
-
-- **Daily target notification** - When daily targets are enabled and notifications are on, the "Today's streak target" popup stays on screen until you dismiss it, ensuring you don't miss the achievement.
-
-- **Automatically track reading** - Enable/disable automatic tracking when books are opened. When enabled, the plugin automatically records reading activity when you open a book. When disabled, you'll need to manually trigger tracking (this may require restarting KOReader for changes to take effect).
+- **Export to Project Title** - Display reading streak widget directly in Project Title footer.
 
 ### Data Management
 

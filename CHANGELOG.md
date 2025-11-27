@@ -2,7 +2,28 @@
 
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [1.3.0] - 2025-11-26
+
+### Added
+- **UI Integration with Project Title** - Display reading streak directly in Project Title footer (requested by [@JoeBumm](https://github.com/JoeBumm) in [#3](https://github.com/advokatb/readingstreak.koplugin/issues/3))
+  - Enable "Export to Project Title" in Settings → UI Integration
+  - Streak widget appears automatically between footer text and pagination
+  - Shows current streak with symbol (⚡) and day count
+  - Updates automatically as you read
+  - Uses same font and styling as Project Title footer for consistency
+
+### Changed
+- Settings menu completely reorganized into logical submenus:
+  - **Goals**: Streak Goal, Daily Page Target, Daily Time Target
+  - **Tracking**: Automatically track reading, Show streak notifications
+  - **Display**: Calendar streak display
+  - **UI Integration**: Export to Project Title
+  - **Data Management**: Import from Statistics, Reset All Data
+- Removed modal settings dialog - all settings now accessible via inline menu
+- Removed `USE_INLINE_SETTINGS` variable - inline menu is now the only option
+
+### Fixed
+- Settings menu structure improved for better organization
 
 ## [1.2.2] - 2025-11-09
 

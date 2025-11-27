@@ -221,3 +221,15 @@ msgstr "%1 годин %2 хвилин"
 msgid "Show Menu"
 msgstr "Показати меню"
 
+msgid "UI Integration"
+msgstr "Інтеграція з інтерфейсом"
+
+msgid "Export to Project Title"
+msgstr "Експорт в Project Title"
+
+msgid "Export to CoverBrowser"
+msgstr "Експорт в CoverBrowser"
+
+msgid "No streak"
+msgstr "Немає серії"
+
