@@ -391,7 +391,7 @@ end
 
 -- PluginShare API for integration with other plugins
 function ReadingStreak:updatePluginShareAPI()
-    logger.info("ReadingStreak: updatePluginShareAPI called", {
+    logger.dbg("ReadingStreak: updatePluginShareAPI called", {
         has_pluginShare = PluginShare ~= nil,
         export_to_projecttitle = self.settings.export_to_projecttitle,
         export_to_coverbrowser = self.settings.export_to_coverbrowser
@@ -455,7 +455,7 @@ function ReadingStreak:updatePluginShareAPI()
         end,
     }
     
-    logger.info("ReadingStreak: PluginShare data exported", {
+    logger.dbg("ReadingStreak: PluginShare data exported", {
         current_streak = PluginShare.readingstreak.current_streak,
         has_getStreakText = PluginShare.readingstreak.getStreakText ~= nil,
         has_getStreakEmoji = PluginShare.readingstreak.getStreakEmoji ~= nil

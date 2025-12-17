@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.1] - 2025-12-17
+
+### Changed
+- PluginShare export logging is now **debug-only** to reduce log noise during normal use.
+
 ## [1.3.0] - 2025-11-26
 
 ### Added
